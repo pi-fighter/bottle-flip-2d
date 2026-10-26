@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://ddypso1t3gscm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lo66p"]
+size = Vector2(124, 8)
+
+[node name="Table" type="StaticBody2D" unique_id=1592806523]
+scale = Vector2(14, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1975808737]
+shape = SubResource("RectangleShape2D_lo66p")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1129177715]
+offset_left = -62.0
+offset_top = -4.0
+offset_right = 62.0
+offset_bottom = 4.0
+color = Color(0.52156866, 0.23921569, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect" unique_id=1583392152]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 14.0
+offset_bottom = 53.0
+color = Color(0.52156866, 0.23921569, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect" unique_id=2020172574]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 6.0
+offset_right = 116.0
+offset_bottom = 54.0
+color = Color(0.52156866, 0.23921569, 0, 1)

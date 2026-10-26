@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://dm0qpxs88dheo"]
+
+[ext_resource type="Script" uid="uid://ba5dqek2mk7ji" path="res://Scenes/WaterBottle/water_bottle.gd" id="1_phajo"]
+[ext_resource type="Script" uid="uid://dw26ibcyam23p" path="res://addons/godot-rapier2d/fluid_2d_rectangle.gd" id="2_bym76"]
+[ext_resource type="Texture2D" uid="uid://cho3shol3rky2" path="res://addons/godot-rapier2d/Radial2D.svg" id="3_aql2u"]
+[ext_resource type="Script" uid="uid://c70amrnbdymwf" path="res://addons/godot-rapier2d/fluid_2d_renderer.gd" id="4_qhb2m"]
+
+[sub_resource type="FluidEffect2DElasticity" id="FluidEffect2DElasticity_aql2u"]
+young_modulus = 10.0
+
+[sub_resource type="FluidEffect2DViscosityArtificial" id="FluidEffect2DViscosityArtificial_qhb2m"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_adcqc"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(-16, -16, 0, 32, 32, 0),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63),
+"format": 34393296913,
+"index_count": 6,
+"index_data": PackedByteArray(3, 0, 0, 0, 1, 0, 1, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 128, 193, 0, 0, 128, 65, 0, 0, 128, 193, 0, 0, 128, 193, 0, 0, 128, 65, 0, 0, 128, 193, 0, 0, 128, 65, 0, 0, 128, 65)
+}]
+
+[sub_resource type="MultiMesh" id="MultiMesh_fvlr7"]
+use_colors = true
+instance_count = 50
+mesh = SubResource("ArrayMesh_adcqc")
+buffer = PackedFloat32Array(2, 0, 0, 0, 0, 2, 0, 0, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 20, 0, 2, 0, 0, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 40, 0, 2, 0, 0, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 60, 0, 2, 0, 0, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 80, 0, 2, 0, 0, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 0, 0, 2, 0, 20, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 20, 0, 2, 0, 20, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 40, 0, 2, 0, 20, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 60, 0, 2, 0, 20, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 80, 0, 2, 0, 20, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 0, 0, 2, 0, 40, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 20, 0, 2, 0, 40, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 40, 0, 2, 0, 40, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 60, 0, 2, 0, 40, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 80, 0, 2, 0, 40, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 0, 0, 2, 0, 60, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 20, 0, 2, 0, 60, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 40, 0, 2, 0, 60, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 60, 0, 2, 0, 60, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 80, 0, 2, 0, 60, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 0, 0, 2, 0, 80, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 20, 0, 2, 0, 80, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 40, 0, 2, 0, 80, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 60, 0, 2, 0, 80, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 80, 0, 2, 0, 80, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 0, 0, 2, 0, 100, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 20, 0, 2, 0, 100, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 40, 0, 2, 0, 100, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 60, 0, 2, 0, 100, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 80, 0, 2, 0, 100, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 0, 0, 2, 0, 120, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 20, 0, 2, 0, 120, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 40, 0, 2, 0, 120, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 60, 0, 2, 0, 120, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 80, 0, 2, 0, 120, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 0, 0, 2, 0, 140, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 20, 0, 2, 0, 140, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 40, 0, 2, 0, 140, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 60, 0, 2, 0, 140, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 80, 0, 2, 0, 140, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 0, 0, 2, 0, 160, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 20, 0, 2, 0, 160, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 40, 0, 2, 0, 160, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 60, 0, 2, 0, 160, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 80, 0, 2, 0, 160, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 0, 0, 2, 0, 180, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 20, 0, 2, 0, 180, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 40, 0, 2, 0, 180, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 60, 0, 2, 0, 180, 0.19193292, 0.41873753, 1, 0.60784316, 2, 0, 0, 80, 0, 2, 0, 180, 0.19193292, 0.41873753, 1, 0.60784316)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lo66p"]
+size = Vector2(50, 160)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1p03k"]
+a = Vector2(-74, -240)
+b = Vector2(-74, 240)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_kek36"]
+a = Vector2(-75, 239)
+b = Vector2(74, 239)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kek36"]
+size = Vector2(138, 400.5)
+
+[node name="WaterBottle" type="RigidBody2D" unique_id=1534243039]
+mass = 1000.0
+script = ExtResource("1_phajo")
+follow_speed = null
+max_drag_speed = null
+massless = null
+body_skin = null
+dominance = null
+soft_ccd = null
+additional_solver_iterations = null
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="Fluid2D" type="Fluid2D" parent="." unique_id=1828864965]
+effects = Array[Resource]([SubResource("FluidEffect2DElasticity_aql2u"), SubResource("FluidEffect2DViscosityArtificial_qhb2m")])
+points = PackedVector2Array(0, 0, 20, 0, 40, 0, 60, 0, 80, 0, 0, 20, 20, 20, 40, 20, 60, 20, 80, 20, 0, 40, 20, 40, 40, 40, 60, 40, 80, 40, 0, 60, 20, 60, 40, 60, 60, 60, 80, 60, 0, 80, 20, 80, 40, 80, 60, 80, 80, 80, 0, 100, 20, 100, 40, 100, 60, 100, 80, 100, 0, 120, 20, 120, 40, 120, 60, 120, 80, 120, 0, 140, 20, 140, 40, 140, 60, 140, 80, 140, 0, 160, 20, 160, 40, 160, 60, 160, 80, 160, 0, 180, 20, 180, 40, 180, 60, 180, 80, 180)
+collision_layer = 5
+position = Vector2(-58, -169)
+script = ExtResource("2_bym76")
+width = 5
+
+[node name="MultiMeshInstance2D" type="MultiMeshInstance2D" parent="." unique_id=731471923 node_paths=PackedStringArray("fluid")]
+position = Vector2(-58, -169)
+multimesh = SubResource("MultiMesh_fvlr7")
+texture = ExtResource("3_aql2u")
+script = ExtResource("4_qhb2m")
+fluid = NodePath("../Fluid2D")
+color = Color(0.19193292, 0.41873753, 1, 0.60784316)
+mesh_scale = Vector2(2, 2)
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="." unique_id=453689803]
+visible = false
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_lo66p")
+disabled = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2110081254]
+modulate = Color(1, 1, 1, 0.47843137)
+offset_left = -73.0
+offset_top = -166.0
+offset_right = -71.53
+offset_bottom = -161.95
+scale = Vector2(100, 100)
+mouse_filter = 1
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=982102349]
+modulate = Color(1, 1, 1, 0.47843137)
+offset_left = -19.0
+offset_top = -235.0
+offset_right = -18.630005
+offset_bottom = -234.31
+scale = Vector2(100, 100)
+mouse_filter = 1
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=282327438]
+shape = SubResource("SegmentShape2D_1p03k")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=360119988]
+position = Vector2(148, 0)
+shape = SubResource("SegmentShape2D_1p03k")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=910624485]
+shape = SubResource("SegmentShape2D_kek36")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="." unique_id=33733159]
+position = Vector2(0, -479)
+shape = SubResource("SegmentShape2D_kek36")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1491750640]
+collision_layer = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1249079525]
+position = Vector2(0, 33.25)
+shape = SubResource("RectangleShape2D_kek36")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1947203321]
+modulate = Color(1, 1, 1, 0.47843137)
+polygon = PackedVector2Array(-73, -166, -19, -166, -19, -235)
+
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=1283494175]
+modulate = Color(1, 1, 1, 0.47843137)
+position = Vector2(91, 0)
+polygon = PackedVector2Array(-73, -166, -17, -166, -73, -234)
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=715968970]
+offset_left = -23.0
+offset_top = -258.0
+offset_right = 23.0
+offset_bottom = -234.0
+color = Color(0.43580246, 0.6136474, 1, 1)
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

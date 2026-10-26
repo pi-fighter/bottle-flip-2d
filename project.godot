@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="2D Bottle Flip"
+run/main_scene="uid://dapb8hvq83ir"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
@@ -21,7 +22,10 @@ window/stretch/aspect="expand"
 
 [physics]
 
+2d/physics_engine="Rapier2D"
 3d/physics_engine="Jolt Physics"
+2d/default_gravity=4500.0
+rapier/fluid/fluid_particle_radius_2d=10.0
 
 [rendering]
 
