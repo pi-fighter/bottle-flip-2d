@@ -44,16 +44,15 @@ b = Vector2(74, 239)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kek36"]
 size = Vector2(138, 400.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rhlx"]
+size = Vector2(64, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1p03k"]
+size = Vector2(20, 341.375)
+
 [node name="WaterBottle" type="RigidBody2D" unique_id=1534243039]
 mass = 1000.0
 script = ExtResource("1_phajo")
-follow_speed = null
-max_drag_speed = null
-massless = null
-body_skin = null
-dominance = null
-soft_ccd = null
-additional_solver_iterations = null
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="Fluid2D" type="Fluid2D" parent="." unique_id=1828864965]
@@ -108,7 +107,7 @@ shape = SubResource("SegmentShape2D_1p03k")
 shape = SubResource("SegmentShape2D_kek36")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="." unique_id=33733159]
-position = Vector2(0, -479)
+position = Vector2(0, -480)
 shape = SubResource("SegmentShape2D_kek36")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1491750640]
@@ -134,4 +133,23 @@ offset_right = 23.0
 offset_bottom = -234.0
 color = Color(0.43580246, 0.6136474, 1, 1)
 
+[node name="FlipSensor" type="Area2D" parent="." unique_id=485624089]
+position = Vector2(-3, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipSensor" unique_id=315734899]
+position = Vector2(3, 252)
+shape = SubResource("RectangleShape2D_3rhlx")
+
+[node name="SideSensor" type="Area2D" parent="." unique_id=612351379]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideSensor" unique_id=1891021378]
+position = Vector2(69, 23.3125)
+shape = SubResource("RectangleShape2D_1p03k")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SideSensor" unique_id=1435446396]
+position = Vector2(-70, 25.875)
+shape = SubResource("RectangleShape2D_1p03k")
+
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="area_entered" from="FlipSensor" to="." method="_on_flip_sensor_area_entered"]
+[connection signal="area_entered" from="SideSensor" to="." method="_on_side_sensor_area_entered"]

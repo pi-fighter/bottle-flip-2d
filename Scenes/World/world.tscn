@@ -1,22 +1,81 @@
 [gd_scene format=3 uid="uid://dapb8hvq83ir"]
 
+[ext_resource type="Script" uid="uid://dop64tisu24c" path="res://Scenes/World/world.gd" id="1_3rhlx"]
 [ext_resource type="PackedScene" uid="uid://ddypso1t3gscm" path="res://Scenes/Table/table.tscn" id="1_yp2ti"]
 [ext_resource type="PackedScene" uid="uid://dm0qpxs88dheo" path="res://Scenes/WaterBottle/water_bottle.tscn" id="2_3rhlx"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_lo66p"]
+font_size = 128
+
 [node name="World" type="Node2D" unique_id=1633547144]
+script = ExtResource("1_3rhlx")
 
 [node name="Table" parent="." unique_id=1592806523 instance=ExtResource("1_yp2ti")]
-
-[node name="WaterBottle" parent="." unique_id=1534243039 instance=ExtResource("2_3rhlx")]
-position = Vector2(-144, -912)
-follow_speed = 15.0
-max_drag_speed = 1600.0
-massless = false
-body_skin = 0.0
-dominance = 0
-soft_ccd = 0.0
-additional_solver_iterations = 0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1751219271]
 position = Vector2(100, -69)
 zoom = Vector2(0.25, 0.25)
+
+[node name="WaterBottle2DNode" type="Node2D" parent="." unique_id=430719778]
+position = Vector2(0, -350)
+
+[node name="WaterBottle" parent="WaterBottle2DNode" unique_id=1534243039 instance=ExtResource("2_3rhlx")]
+position = Vector2(-144, -912)
+
+[node name="UI" type="Control" parent="." unique_id=51449498]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Press A and D to Rotate!3" type="Label" parent="UI" unique_id=1849047928]
+layout_mode = 0
+offset_left = -2112.0
+offset_top = -1326.0
+offset_right = -626.0
+offset_bottom = -1151.0
+text = "Mouse to Drag,
+A and D to Rotate!"
+label_settings = SubResource("LabelSettings_lo66p")
+
+[node name="Flip Count" type="Label" parent="UI" unique_id=1939370945]
+layout_mode = 0
+offset_left = 962.0
+offset_top = -1349.0
+offset_right = 2448.0
+offset_bottom = -1174.0
+text = "Total Landed Flips:"
+label_settings = SubResource("LabelSettings_lo66p")
+
+[node name="Streak2" type="Label" parent="UI" unique_id=1079647822]
+z_index = 1
+layout_mode = 0
+offset_left = -1985.0
+offset_top = 732.0
+offset_right = -499.0
+offset_bottom = 1085.0
+text = "Reset
+Bottle"
+label_settings = SubResource("LabelSettings_lo66p")
+
+[node name="Streak3" type="Label" parent="UI" unique_id=492252004]
+z_index = 1
+layout_mode = 0
+offset_left = 1591.0
+offset_top = 855.0
+offset_right = 3077.0
+offset_bottom = 1208.0
+text = "Streak: "
+label_settings = SubResource("LabelSettings_lo66p")
+
+[node name="Button" type="Button" parent="UI" unique_id=528937108]
+layout_mode = 0
+offset_left = -2093.0
+offset_top = 671.0
+offset_right = -1538.0
+offset_bottom = 1151.0
+
+[connection signal="bottle_clicked" from="WaterBottle2DNode/WaterBottle" to="." method="_on_water_bottle_bottle_clicked"]
+[connection signal="flip_failed" from="WaterBottle2DNode/WaterBottle" to="." method="_on_water_bottle_flip_failed"]
+[connection signal="flip_landed" from="WaterBottle2DNode/WaterBottle" to="." method="_on_water_bottle_flip_landed"]
+[connection signal="button_down" from="UI/Button" to="." method="_on_button_button_down"]

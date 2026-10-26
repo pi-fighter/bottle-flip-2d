@@ -3,6 +3,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lo66p"]
 size = Vector2(124, 8)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1p03k"]
+size = Vector2(122.64287, 14.928572)
+
 [node name="Table" type="StaticBody2D" unique_id=1592806523]
 scale = Vector2(14, 14)
 
@@ -31,3 +34,10 @@ offset_top = 6.0
 offset_right = 116.0
 offset_bottom = 54.0
 color = Color(0.52156866, 0.23921569, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=525622634]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1588787239]
+position = Vector2(-0.035709925, 2.5357134)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_1p03k")
