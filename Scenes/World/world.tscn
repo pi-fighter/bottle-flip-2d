@@ -59,6 +59,7 @@ Bottle"
 label_settings = SubResource("LabelSettings_lo66p")
 
 [node name="Streak3" type="Label" parent="UI" unique_id=492252004]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 1591.0
